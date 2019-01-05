@@ -109,7 +109,6 @@ $.fn.stick_in_parent = (opts={}) ->
           tick()
 
       recalc()
-      return if height == parent_height
 
       last_pos = undefined
       offset = offset_top
@@ -260,6 +259,8 @@ $.fn.stick_in_parent = (opts={}) ->
       win.on "resize", recalc_and_tick
       $(document.body).on "sticky_kit:recalc", recalc_and_tick
       elm.on "sticky_kit:detach", detach
+
+      return if height == parent_height
 
       setTimeout tick, 0
 
